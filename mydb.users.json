@@ -1,0 +1,49 @@
+[{
+  "_id": {
+    "$oid": "6756c8efbd0d988c18557d56"
+  },
+  "name": "Demo",
+  "email": "demo@123",
+  "password": {
+    "$binary": {
+      "base64": "JDJiJDEyJFpKLnlMYkk4cEY1MUJUMUU2c3U0R2VqRFFpQktzVEt4MlVGMUxzQjlzZmptYVdnS0RiMi5h",
+      "subType": "00"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "6756f6b8afce14bb7a9c8fdd"
+  },
+  "barcode": "0036000291452",
+  "name": "Mobile",
+  "quantity": "1",
+  "price": "5000"
+},
+{
+  "_id": {
+    "$oid": "6756f724afce14bb7a9c8fde"
+  },
+  "barcode": "0036000291452",
+  "name": "Mobile",
+  "quantity": "11",
+  "price": "11000"
+},
+{
+  "_id": {
+    "$oid": "6756f76aafce14bb7a9c8fdf"
+  },
+  "barcode": "0036000291452",
+  "name": "Biscuit",
+  "quantity": "22",
+  "price": "2500"
+},
+{
+  "_id": {
+    "$oid": "6756f7c8afce14bb7a9c8fe1"
+  },
+  "barcode": "0036000291452",
+  "name": "Mobile",
+  "quantity": "1100",
+  "price": "15000"
+}]
