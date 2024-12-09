@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/Logo.jpg">
+    <title>Food Barcode Scanner</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+</head>
+
+<body style="background-image: url(../static/stunning_animated_gifs_03.gif);background-position-y: 29%;
+background-repeat: no-repeat;background-size: cover;">
+    <h1 style="color: white;">Scan Barcode</h1>
+    <input type="text" id="barcode" name="barcode" placeholder="Barcode is .."
+        style="height: 53px;width: 99%;margin-top: 0%;text-align: center;" readonly>
+    <button style="margin-left: 92.8%;cursor: pointer;height: 40px;width: 92px;" onclick="startScanner()">Start
+        Scanning</button>
+    <button id="stopScanner"
+        style="margin-left: 92.8%;cursor: pointer;height: 40px;width: 92px;margin-top: inherit;display: none;"
+        onclick="stopScanner()">Stop
+        Scanning</button>
+    <!-- <form id="barcodeForm" method="POST" action="/add_food"> -->
+    <form action="/food_details" method="POST">
+        <button id="nextPage"
+            style="margin-left: 92.8%;cursor: pointer;height: 40px;width: 92px;margin-top: inherit;display: none;">Next
+        </button>
+    </form>
+    <!-- </form> -->
+    <div id="scanner-container"></div>
+    <script>
+        function startScanner() {
+            document.querySelector("#scanner-container").style.display = "unset";
+            Quagga.init({
+                inputStream: {
+                    name: "Live",
+                    type: "LiveStream",
+                    target: document.querySelector('#scanner-container'),
+                },
+                decoder: {
+                    readers: ["ean_reader"]
+                },
+                area: {
+                    top: "0%",
+                    right: "0%",
+                    left: "0%",
+                    bottom: "0%"
+                },
+                singleChannel: false
+
+            }, function (err) {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                console.log("Scanner initialized");
+                Quagga.start();
+            });
+
+            Quagga.onDetected(function (data) {
+                console.log("Code Detected");
+                document.querySelector('#stopScanner').style.display = "unset";
+                Quagga.stop();  // Stop scanning after detection
+
+                const scannedBarcode = data.codeResult.code;
+                document.getElementById('barcode').value = scannedBarcode;
+                // Store Scanned Barcode into Session-Storage..
+                sessionStorage.setItem('scannedBarcode', scannedBarcode)
+            });
+        }
+
+        function stopScanner() {
+            document.querySelector("#scanner-container").style.display = "none";
+            document.querySelector('#stopScanner').style.display = "none";
+            document.querySelector('#nextPage').style.display = "unset";
+        }
+    </script>
+</body>
+
+</html>

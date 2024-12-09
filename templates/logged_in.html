@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/Logo.jpg">
+    <title>Food Barcode Scanner</title>
+</head>
+
+<body style="background-image: url(../static/stunning_animated_gifs_03.gif);background-position-y: 29%;
+background-repeat: no-repeat;background-size: cover;">
+    <h1 style="color: white;">Barcode Details</h1>
+    <form id="barcodeForm" method="POST" action="/add_food">
+        <input type="text" id="barcode" name="barcode" placeholder="Barcode is .."
+            style="height: 53px;width: 99%;margin-top: 0%;text-align: center;" readonly>
+
+        <input type="text" id="name" name="name" placeholder="Product Name .."
+            style="height: 53px;width: 99%;margin-top: 1%;text-align: center;" required>
+        <span id="nameError" class="error"></span>
+
+        <input type="number" id="quantity" name="quantity" placeholder="Quantity .."
+            style="height: 53px;width: 99%;margin-top: 1%;text-align: center;" min="1" step="1" required>
+        <span id="quantityError" class="error"></span>
+
+        <input type="number" id="price" name="price" placeholder="Price .."
+            style="height: 53px;width: 99%;margin-top: 1%;text-align: center;" min="0" step="1" required>
+        <span id="priceError" class="error"></span>
+        <button id="nextPage"
+            style="margin-left: 92.8%;cursor: pointer;height: 40px;width: 92px;margin-top: inherit;display: unset;">Next
+        </button>
+    </form>
+    <form action="/prevPage" method="POST">
+        <button id="prevPage"
+            style="margin-left: 92.8%;cursor: pointer;height: 40px;width: 92px;margin-top: 1px;display: none;">Back
+        </button>
+    </form>
+</body>
+
+<script>
+    // const scannedBarcode = data.codeResult.code;
+    document.getElementById('barcode').value = sessionStorage.getItem('scannedBarcode');
+
+    document.getElementById('barcodeForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        document.getElementById('nameError').textContent = '';
+        document.getElementById('quantityError').textContent = '';
+        document.getElementById('priceError').textContent = '';
+
+        // Get form inputs
+        const name = document.getElementById('name').value.trim();
+        const quantity = document.getElementById('quantity').value.trim();
+        const price = document.getElementById('price').value.trim();
+
+        let valid = true;
+        const nameRegex = /^[a-zA-Z\s]+$/;
+        if (!nameRegex.test(name)) {
+            document.getElementById('nameError').textContent = 'Name must contain only letters and spaces.';
+            valid = false;
+        }
+
+        if (isNaN(quantity) || quantity <= 0) {
+            document.getElementById('quantityError').textContent = 'Quantity must be a positive number.';
+            valid = false;
+        }
+
+        if (isNaN(price) || price < 0) {
+            document.getElementById('priceError').textContent = 'Price must be a non-negative number.';
+            valid = false;
+        }
+
+        if (valid) {
+            const scanned = sessionStorage.getItem('scannedBarcode');
+            console.log('Scanned Barcode:', { scanned });
+
+            const fd = new FormData(this);
+            fd.append('barcode', scanned);
+            fd.append('name', name);
+            fd.append('quantity', quantity);
+            fd.append('price', price);
+
+            fetch('/add_food', {
+                method: 'POST',
+                body: fd
+            }).then(res => res.json())
+                .catch(e => console.error(e));
+            alert('Data saved successfully!')
+            this.reset();
+            document.querySelector('#prevPage').style.display = "unset";
+            document.querySelector('#nextPage').style.display = "none";
+        }
+    });
+</script>
+
+</html>
