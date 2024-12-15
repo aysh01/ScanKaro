@@ -62,8 +62,8 @@ C:\Users\Scripts\venv\Scripts>
 It, will stop Python Virtual-Environment.
 
 ## Video Explanation
-<a href="https://drive.google.com/file/d/1spXNuZTbgM7NL1N3-p0Cw4Lbht4mwrfi/view?usp=drive_link">
-<img src="https://github.com/aysh01/Web_Scrapper/blob/main/venv/static/20240602_203943_0000.png" alt="Image">
+<a href="">
+<img src="https://github.com/aysh01/ScanKaro/blob/main/static/Scan-barcode.png" alt="Image">
 </a>
 
 ## Output
