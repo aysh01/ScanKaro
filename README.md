@@ -39,8 +39,8 @@ Then, go to previous directory ```venv```
 ```
 Run the Program 👇
 ```Python
-(venv) C:\Users\Scripts\venv>py app.py
- * Serving Flask app 'app'
+(venv) C:\Users\Scripts\venv>py form.py
+ * Serving Flask app 'form'
  * Debug mode: on
  * Running on http://127.0.0.1:5000
 Press CTRL+C to quit
