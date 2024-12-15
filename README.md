@@ -70,7 +70,6 @@ It, will stop Python Virtual-Environment.
 ![Scan-barcode](https://github.com/aysh01/ScanKaro/blob/main/static/Scan-barcode.png)
 ![Scan-barcode-details](https://github.com/aysh01/ScanKaro/blob/main/static/Scan-barcode-details.png)
 ![Scan-barcode-details-in-db](https://github.com/aysh01/ScanKaro/blob/main/static/Scan-barcode-details-in-db.png)
-<hr>
 ![monthly-bill](https://github.com/aysh01/ScanKaro/blob/main/static/monthly-bill.png)
 ![monthly-bill-details](https://github.com/aysh01/ScanKaro/blob/main/static/monthly-bill-details.png)
 ![monthly-bill-details-in-db](https://github.com/aysh01/ScanKaro/blob/main/static/monthly-bill-details-in-db.png)
