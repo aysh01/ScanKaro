@@ -1,4 +1,4 @@
-# Developing a Python Based Web-Scrapper
+# Developing a Skc+ (ScanKaro+) | Food Barcode Scanner App
 
 ## Installation
 
