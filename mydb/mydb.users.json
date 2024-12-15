@@ -1,0 +1,80 @@
+[{
+  "_id": {
+    "$oid": "6756c8efbd0d988c18557d56"
+  },
+  "name": "Demo",
+  "email": "demo@123",
+  "password": {
+    "$binary": {
+      "base64": "JDJiJDEyJFpKLnlMYkk4cEY1MUJUMUU2c3U0R2VqRFFpQktzVEt4MlVGMUxzQjlzZmptYVdnS0RiMi5h",
+      "subType": "00"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "6756f6b8afce14bb7a9c8fdd"
+  },
+  "barcode": "0036000291452",
+  "name": "Mobile",
+  "quantity": "1",
+  "price": "5000"
+},
+{
+  "_id": {
+    "$oid": "6756f724afce14bb7a9c8fde"
+  },
+  "barcode": "0036000291452",
+  "name": "Mobile",
+  "quantity": "11",
+  "price": "11000"
+},
+{
+  "_id": {
+    "$oid": "6756f76aafce14bb7a9c8fdf"
+  },
+  "barcode": "0036000291452",
+  "name": "Biscuit",
+  "quantity": "22",
+  "price": "2500"
+},
+{
+  "_id": {
+    "$oid": "6756f7c8afce14bb7a9c8fe1"
+  },
+  "barcode": "0036000291452",
+  "name": "Mobile",
+  "quantity": "1100",
+  "price": "15000"
+},
+{
+  "_id": {
+    "$oid": "675c20a68b98cc4c063e0907"
+  },
+  "barcode": "4799921497223",
+  "name": "Mobile",
+  "quantity": "5",
+  "price": "5000"
+},
+{
+  "_id": {
+    "$oid": "675d68772ec787991c9fae79"
+  },
+  "barcode": "2478614589620",
+  "name": "Colgate Toothpase",
+  "quantity": "50",
+  "price": "100"
+},
+{
+  "_id": {
+    "$oid": "675eb16bc67b4063e99e3426"
+  },
+  "name": "User1201023",
+  "email": "user@1201023",
+  "password": {
+    "$binary": {
+      "base64": "JDJiJDEyJEk3NzNSSUx2SnJyTC44RHZBY2owUHVBMWJTTDl1Zm53Ny53T2xEdFF4WHM1TVREb3FUVzZL",
+      "subType": "00"
+    }
+  }
+}]
