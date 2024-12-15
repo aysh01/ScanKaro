@@ -14,7 +14,8 @@ pip install -r requirements.txt
 ## Necessary Packages for this project ..
 ```Flask```
 ```render_template```
-```request``` ```jsonify``` ```requests``` ```BeautifulSoup``` ```mongoose```
+```request``` ```jsonify``` ```redirect``` ```url_for``` ```session```
+```MongoClient``` ```Blueprint``` ```datetime```
 
 ## Usage
 
