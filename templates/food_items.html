@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../static/Logo.jpg">
-    <title>SKC + | Food Barcode Scanner</title>
+    <title>SKC + ( Food Items ) | Food Barcode Scanner</title>
 </head>
 
-<body style="background-image: url(../static/stunning_animated_gifs_03.gif);background-position-y: 29%;
+<body style="background-image: url(../static/stunning_animated_gifs_04.gif);background-position-y: 29%;
 background-repeat: no-repeat;background-size: cover;">
-    <h1 style="color: white;">Barcode Details</h1>
-    <form id="barcodeForm" method="POST" action="/add_food">
+    <h1 style="color: white;">Bill Details</h1>
+    <form id="barcodeForm1" method="POST" action="/store_items">
         <input type="text" id="barcode" name="barcode" placeholder="Barcode is .."
             style="height: 53px;width: 99%;margin-top: 0%;text-align: center;" readonly>
 
@@ -32,9 +32,10 @@ background-repeat: no-repeat;background-size: cover;">
             style="margin-left: 92.8%;cursor: pointer;height: 40px;width: 92px;margin-top: inherit;display: unset;">Next
         </button>
     </form>
-    <form action="/prevPage" method="POST">
-        <button id="prevPage"
-            style="margin-left: 92.8%;cursor: pointer;height: 40px;width: 92px;margin-top: 1px;display: none;">Back
+    <form action="prevPage1" method="POST">
+        <button id="prevPage1"
+            style="margin-left: 92.8%;cursor: pointer;height: 40px;width: 92px;margin-top: 1px;display: none;">
+            Back
         </button>
     </form>
 </body>
@@ -43,7 +44,7 @@ background-repeat: no-repeat;background-size: cover;">
     // const scannedBarcode = data.codeResult.code;
     document.getElementById('barcode').value = sessionStorage.getItem('scannedBarcode');
 
-    document.getElementById('barcodeForm').addEventListener('submit', function (event) {
+    document.getElementById('barcodeForm1').addEventListener('submit', function (event) {
         event.preventDefault();
 
         document.getElementById('nameError').textContent = '';
@@ -82,14 +83,14 @@ background-repeat: no-repeat;background-size: cover;">
             fd.append('quantity', quantity);
             fd.append('price', price);
 
-            fetch('/add_food', {
+            fetch('store_items', {
                 method: 'POST',
                 body: fd
             }).then(res => res.json())
                 .catch(e => console.error(e));
             alert('Data saved successfully!')
             this.reset();
-            document.querySelector('#prevPage').style.display = "unset";
+            document.querySelector('#prevPage1').style.display = "unset";
             document.querySelector('#nextPage').style.display = "none";
         }
     });

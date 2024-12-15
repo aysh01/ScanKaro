@@ -6,25 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../static/Logo.jpg">
-    <title>SKC + | Food Barcode Scanner</title>
+    <title>SKC + ( Monthly - Bill ) | Food Barcode Scanner</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
 </head>
 
 <body style="background-image: url(../static/stunning_animated_gifs_03.gif);background-position-y: 29%;
 background-repeat: no-repeat;background-size: cover;">
-    <h1 style="color: white;">Scan Barcode
-        <!--<span>&#9783;</span>-->
-        <div id="ham-burger_menu1" style="color: white;text-align: right;margin-top: -35px;cursor: pointer;font-size: 20px;
-        margin-right: 3%;display: none;">
-            <span>&#8377;</span>&nbsp;&nbsp;Monthly - Bill
-        </div>
+    <h1 style="color: white;"><span>&#8377;</span>&nbsp;&nbsp;Monthly - Bill
         <div id="ham-burger_menu"
             style="width: 2%;margin-left: auto;color: white;text-align: right;margin-top: -35px;cursor: pointer;">
             <span>&#9778;</span>
         </div>
     </h1>
-    </h1>
-    <input type="text" id="barcode" name="barcode" placeholder="Barcode is .."
+    <input type="text" id="barcode" name="barcode" placeholder="Scan Barcode here .."
         style="height: 53px;width: 99%;margin-top: 0%;text-align: center;" readonly>
     <button style="margin-left: 92.8%;cursor: pointer;height: 40px;width: 92px;" onclick="startScanner()">Start
         Scanning</button>
@@ -32,19 +26,16 @@ background-repeat: no-repeat;background-size: cover;">
         style="margin-left: 92.8%;cursor: pointer;height: 40px;width: 92px;margin-top: inherit;display: none;"
         onclick="stopScanner()">Stop
         Scanning</button>
-    <!-- <form id="barcodeForm" method="POST" action="/add_food"> -->
-    <form action="/food_details" method="POST">
-        <button id="nextPage"
+    <form action="food_items" methods="POST">
+        <button id="nextPage1"
             style="margin-left: 92.8%;cursor: pointer;height: 40px;width: 92px;margin-top: inherit;display: none;">
             Next
         </button>
     </form>
-    <!-- </form> -->
     <div id="scanner-container"></div>
     <script>
         document.querySelector('#ham-burger_menu').addEventListener('click', function (e) {
-            document.querySelector('#ham-burger_menu1').style.display = 'block';
-            window.location.href = 'monthly_bill';
+            window.location = '/logged_in';
         });
 
         function startScanner() {
@@ -78,7 +69,6 @@ background-repeat: no-repeat;background-size: cover;">
             Quagga.onDetected(function (data) {
                 console.log("Code Detected");
                 document.querySelector('#stopScanner').style.display = "unset";
-                document.querySelector('#nextPage').style.display = "none";
                 Quagga.stop();  // Stop scanning after detection
 
                 const scannedBarcode = data.codeResult.code;
@@ -91,8 +81,9 @@ background-repeat: no-repeat;background-size: cover;">
         function stopScanner() {
             document.querySelector("#scanner-container").style.display = "none";
             document.querySelector('#stopScanner').style.display = "none";
-            document.querySelector('#nextPage').style.display = "unset";
+            document.querySelector('#nextPage1').style.display = "unset";
         }
+
     </script>
 </body>
 
