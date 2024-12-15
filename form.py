@@ -1,10 +1,18 @@
 from flask import Flask, render_template, request, url_for, redirect, session, jsonify
 from pymongo import MongoClient
+from first_app import monthly_bill
+from second_app import autobkup
 import bcrypt
+
+db_password = "6ruyipcr9R1sCSGh"
 
 app = Flask(__name__)
 
-client = MongoClient("mongodb://localhost:27017")
+app.register_blueprint(monthly_bill, url_prefix='/monthly_bill')
+app.register_blueprint(autobkup, url_prefix='/autobkup')
+
+client = MongoClient(
+    f"mongodb+srv://aayushkantak01:{db_password}@cluster0.ylmey.mongodb.net/")
 db = client['mydb']
 collection = db['users']
 
@@ -113,9 +121,11 @@ def check_session():
 def index1():
     return render_template('logged_in.html')
 
+
 @app.route('/prevPage', methods=['POST'])
 def index12():
     return render_template('main.html')
+
 
 @app.route('/add_food', methods=['POST'])
 def add_food():
@@ -131,14 +141,19 @@ def add_food():
         'price': price
     }
 
-    # food_items.append(food_item)
-    collection.insert_one(food_item)  # Insert food items into db..
-    print(f"Received Barcode: {food_item}")
+    existing_item = collection.find_one({'barcode': barcode})
 
-    if not barcode:
-        return jsonify({'message': 'Barcode, is required!'}), 400
+    if existing_item:
+        return jsonify({'message': 'Barcode already exists in the database.'}), 200
     else:
-        return jsonify({'message': 'Data saved successfully!'}), 200
+        # food_items.append(food_item)
+        collection.insert_one(food_item)  # Insert food items into db..
+        print(f"Received Barcode: {food_item}")
+
+        if not barcode:
+            return jsonify({'exists': True, 'message': 'Barcode, is required!'}), 400
+        else:
+            return jsonify({'exists': False, 'message': 'Data saved successfully!'}), 200
 
 
 if __name__ == "__main__":
