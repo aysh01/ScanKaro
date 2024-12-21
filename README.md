@@ -19,6 +19,7 @@ pip install -r requirements.txt
 
 ## Do Make Sure that you've created a [MongoDB Atlas Cluster](https://www.mongodb.com/atlas) and have connected it to [MongoDB Compass](https://www.mongodb.com/try/download/community) ( Use, compass if required for better UI ) ..
 
+## Also, don't forget to import json files into your Db ..
 ## Usage
 
 Inside venv directory
