@@ -17,6 +17,8 @@ pip install -r requirements.txt
 ```request``` ```jsonify``` ```redirect``` ```url_for``` ```session```
 ```MongoClient``` ```Blueprint``` ```datetime```
 
+## Do Make Sure that you've created a MongoDB Atlas Cluster [MongoDB Atlas](https://www.mongodb.com/atlas) and have connected it to MongoDB Compass [MongoDB Compass](https://www.mongodb.com/try/download/community) ( Use, compass if required for better UI ) ..
+
 ## Usage
 
 Inside venv directory
