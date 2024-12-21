@@ -1,0 +1,16 @@
+<title>{% block title %}{{ month }} Bill is Paid on {{ date }} | SKC + Food Barcode Scanner{% endblock %}</title>
+<link rel="icon" href="../static/Logo.jpg">
+{% block content %}
+<h1><span id="login" style="cursor: pointer;">&larr;</span>&nbsp;&nbsp;Your, {{ month }} bill is {{ paid }}.. Your
+    Invoice No: {{ invoice }} !</h1>
+
+{% endblock %}
+<script>
+    document.querySelector("#login").addEventListener('click', function (e) {
+        try {
+            window.location.href = "/logged_in";
+        } catch (e) {
+            console.log(e);
+        }
+    });
+</script>
