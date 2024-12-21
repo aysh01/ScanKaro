@@ -13,7 +13,8 @@
 <body style="background-image: url(../static/stunning_animated_gifs_03.gif);background-position-y: 29%;
 background-repeat: no-repeat;background-size: cover;">
     <h1 style="color: white;">
-        <span id="logout" style="cursor: pointer;">&larr;</span>&nbsp;&nbsp;Scan Barcode
+        <span id="logout" style="cursor: pointer;">&larr;</span>&nbsp;&nbsp;Scan Barcode&nbsp;&nbsp;<span id="menu"
+            style="cursor: pointer;">&#8943;</span>
         <div id="ham-burger_menu1" style="color: white;text-align: right;margin-top: -35px;cursor: pointer;font-size: 20px;
         margin-right: 3%;display: none;">
             <span>&#8377;</span>&nbsp;&nbsp;Monthly - Bill
@@ -42,11 +43,15 @@ background-repeat: no-repeat;background-size: cover;">
     <!-- </form> -->
     <div id="scanner-container"></div>
     <script>
+        document.querySelector('#menu').addEventListener('click', function (e) {
+            window.location.href = 'monthly_bill/view_monthly_bill';
+        });
+        
         document.querySelector('#ham-burger_menu').addEventListener('click', function (e) {
             document.querySelector('#ham-burger_menu1').style.display = 'block';
             window.location.href = 'monthly_bill';
         });
-        
+
         document.querySelector('#logout').addEventListener('click', function (e) {
             window.location.href = "logout";
         });

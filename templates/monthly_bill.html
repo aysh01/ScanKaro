@@ -13,6 +13,10 @@
 <body style="background-image: url(../static/stunning_animated_gifs_03.gif);background-position-y: 29%;
 background-repeat: no-repeat;background-size: cover;">
     <h1 style="color: white;"><span>&#8377;</span>&nbsp;&nbsp;Monthly - Bill
+        <div id="ham-burger_menu1" style="color: white;text-align: right;margin-top: -35px;cursor: pointer;font-size: 20px;
+        margin-right: 3%;display: none;">
+            <span>&larr;</span>&nbsp;&nbsp;Home
+        </div>
         <div id="ham-burger_menu"
             style="width: 2%;margin-left: auto;color: white;text-align: right;margin-top: -35px;cursor: pointer;">
             <span>&#9778;</span>
@@ -35,6 +39,7 @@ background-repeat: no-repeat;background-size: cover;">
     <div id="scanner-container"></div>
     <script>
         document.querySelector('#ham-burger_menu').addEventListener('click', function (e) {
+            document.querySelector('#ham-burger_menu1').style.display = 'block';
             window.location = '/logged_in';
         });
 

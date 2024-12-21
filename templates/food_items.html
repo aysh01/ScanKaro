@@ -11,7 +11,12 @@
 
 <body style="background-image: url(../static/stunning_animated_gifs_04.gif);background-position-y: 29%;
 background-repeat: no-repeat;background-size: cover;">
-    <h1 style="color: white;">Bill Details</h1>
+    <h1 style="color: white;">Bill Details
+        <div id="ham-burger_menu1"
+            style="width: 2%;margin-left: auto;color: white;text-align: right;margin-top: -35px;cursor: pointer;">
+            <span>&#9778;</span>
+        </div>
+    </h1>
     <form id="barcodeForm1" method="POST" action="/store_items">
         <input type="text" id="barcode" name="barcode" placeholder="Barcode is .."
             style="height: 53px;width: 99%;margin-top: 0%;text-align: center;" readonly>
@@ -41,6 +46,9 @@ background-repeat: no-repeat;background-size: cover;">
 </body>
 
 <script>
+    document.querySelector('#ham-burger_menu1').addEventListener('click', function (e) {
+        window.location = '/logged_in';
+    });
     // const scannedBarcode = data.codeResult.code;
     document.getElementById('barcode').value = sessionStorage.getItem('scannedBarcode');
 

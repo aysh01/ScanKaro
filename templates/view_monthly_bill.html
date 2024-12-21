@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/Logo.jpg">
+    <title>SKC + ( View - {{ month }} - Bill ) | Food Barcode Scanner</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+</head>
+
+<body style="background-image: url(../static/stunning_animated_gifs_05.gif);
+background-repeat: no-repeat;background-size: cover;">
+    <h1 style="color: white;"><span>&#8377;</span>&nbsp;&nbsp;View ( {{ month }} ) Monthly - Bill
+        <div id="ham-burger_menu1" style="color: white;text-align: right;margin-top: -35px;cursor: pointer;font-size: 20px;
+        margin-right: 3%;display: none;">
+            <span>&larr;</span>&nbsp;&nbsp;Home
+        </div>
+        <div id="ham-burger_menu"
+            style="width: 2%;margin-left: auto;color: white;text-align: right;margin-top: -35px;cursor: pointer;">
+            <span>&#9778;</span>
+        </div>
+    </h1>
+    <div style="height: 35em;color: white;">
+        <span><img src="../static/Logo.jpg" style="height: 65px;"></span>
+        <div style="height: 90px;width: 21%;margin: 1px;font-size: 20px;">
+            Invoice Date: {{ date }}
+            Invoice No: {{ invoice }}
+        </div>
+        <div style="height: 90px;width: 21%;margin: 1px;font-size: 20px;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>QTY</th>
+                        <th>&nbsp;&nbsp;DESCRIPTION</th>
+                        <th><span style="margin-left: 45em;">PRICE</span></th>
+                        <th>&nbsp;&nbsp;SUBTOTAL</th>
+                    </tr>
+                    <hr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    <tr>
+                        <td>&nbsp;&nbsp;&nbsp;{{ item['quantity'] }}</td>
+                        <td>&nbsp;&nbsp;{{ item['name'] }}</td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8377;{{ item['price'] }}</td>
+                        <td>&nbsp;&nbsp;&nbsp;&#8377;{{ item['quantity'] * item['price'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table><br><br>
+            <!-- Payment Info -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>DUE BY {{ date }}</th>
+                        <th><span style="margin-left: 50.1em;">SUBTOTAL</span>&nbsp;&nbsp;&#8377;{{ total_cost }}</th>
+                    </tr>
+                    <hr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <form action="pay" method="POST">
+            <button type="submit" style="margin-top: 19%;margin-left: 92.8%;cursor: pointer;height: 40px;width: 92px;"
+                onclick="startScanner()">Pay
+            </button>
+        </form>
+    </div>
+    <script>
+        document.querySelector('#ham-burger_menu').addEventListener('click', function (e) {
+            document.querySelector('#ham-burger_menu1').style.display = 'block';
+            window.location = '/logged_in';
+        });
+    </script>
+</body>
+
+</html>
