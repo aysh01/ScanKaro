@@ -77,4 +77,26 @@
       "subType": "00"
     }
   }
+},
+{
+  "_id": {
+    "$oid": "6763c5523629a05889cce9c9"
+  },
+  "name": "Ajay patil",
+  "email": "ajayp@gmail.com",
+  "password": {
+    "$binary": {
+      "base64": "JDJiJDEyJHBmTDV6Wmp2eDNsWHBiWDlZakRqSXU4SHBHZDRPQ0hTcGdVdEt0Um9CVERKQkN5YnFuU0FT",
+      "subType": "00"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "6763e706791e4c95601bc641"
+  },
+  "barcode": "1677120726272",
+  "name": "biscuit",
+  "quantity": "2",
+  "price": "50"
 }]

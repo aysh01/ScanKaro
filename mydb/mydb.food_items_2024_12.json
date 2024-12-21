@@ -17,4 +17,44 @@
   "quantity": "2",
   "price": "20",
   "total": 40
+},
+{
+  "_id": {
+    "$oid": "675ed8ca5fad87f2d0a99410"
+  },
+  "barcode": "2478614589620",
+  "name": "BoAT Rockerz",
+  "quantity": "1",
+  "price": "1500",
+  "total": 1500
+},
+{
+  "_id": {
+    "$oid": "6763e796791e4c95601bc642"
+  },
+  "barcode": "1732968849375",
+  "name": "biscuit",
+  "quantity": "2",
+  "price": "60",
+  "total": 120
+},
+{
+  "_id": {
+    "$oid": "67653e19d9f231b97f7f34b0"
+  },
+  "barcode": "9021914375979",
+  "name": "HP Laptop",
+  "quantity": "2",
+  "price": "15000",
+  "total": 30000
+},
+{
+  "_id": {
+    "$oid": "6766a6dc983453e108da57f5"
+  },
+  "barcode": "5080527793895",
+  "name": "Nike",
+  "quantity": "2",
+  "price": "50",
+  "total": 100
 }]

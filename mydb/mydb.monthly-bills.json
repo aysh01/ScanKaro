@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "676573cabc2b809d98d2cc14"
+  },
+  "Invoice Date": "December 20, 2024",
+  "Invoice No": 83498,
+  "Bill Month": "December",
+  "Due By": "December 20, 2024",
+  "Paid On": "07:10:25 PM",
+  "Sub Total": 31730
+},
+{
+  "_id": {
+    "$oid": "6766a714983453e108da57f6"
+  },
+  "Bill Month": "December",
+  "Due By": "December 21, 2024",
+  "Invoice Date": "December 21, 2024",
+  "Invoice No": 26248,
+  "Paid On": "05:00:56 PM",
+  "Sub Total": 31830
+}]
